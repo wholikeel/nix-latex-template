@@ -6,10 +6,12 @@
     tex-fmt.url = "github:wholikeel/tex-fmt";
   };
 
-  outputs = { self, nixpkgs, flake-utils, tex-fmt}:
+  outputs = { nixpkgs, flake-utils, tex-fmt, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = (nixpkgs.legacyPackages.${system}).extend (tex-fmt.overlays.${system}.default);
+        pkgs = (nixpkgs.legacyPackages.${system}).extend (
+            tex-fmt.overlays.${system}.default
+        );
       in
       {
         formatter = pkgs.nixfmt-rfc-style;
