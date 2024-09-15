@@ -9,8 +9,8 @@
   outputs = { nixpkgs, flake-utils, tex-fmt, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = (nixpkgs.legacyPackages.${system}).extend (
-            tex-fmt.overlays.${system}.default
+        pkgs = nixpkgs.legacyPackages.${system}.extend (
+            tex-fmt.overlays.default
         );
       in
       {
