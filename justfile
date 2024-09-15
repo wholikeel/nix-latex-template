@@ -29,5 +29,7 @@ watch:
 
 view:
     {{pdf_viewer}} "{{build}}/{{entry}}.pdf"
-    
 
+word-count:
+    detex "{{src}}/{{entry}}.tex" | wc
+    
