@@ -8,7 +8,7 @@ pkgs.stdenv.mkDerivation rec {
   ];
   buildPhase = ''
     mkdir -p .cache/latex
-    latexmk -interaction=nonstopmode -auxdir=.cache/latex -pdf main.tex
+    latexmk -interaction=nonstopmode -auxdir=.cache/latex -pdf ./src/main.tex
   '';
   installPhase = ''
     mkdir -p $out
